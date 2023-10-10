@@ -1,0 +1,22 @@
+﻿<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:netfx="http://wixtoolset.org/schemas/v4/wxs/netfx">
+  <Package Name="SudoForMicrosoftWindows" Manufacturer="VMware" Version="!(bind.FileVersion.SudoBrokerBinary)" UpgradeCode="bcac22fb-bd7d-4905-9851-1ca6b0af266b">
+	  
+    <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" Schedule="afterInstallValidate"/>
+	  <PropertyRef Id="WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" />
+	  <Launch Condition="Installed OR WIX_IS_NETFRAMEWORK_472_OR_LATER_INSTALLED" Message="[ProductName] requires Microsoft .NET 4.7.2 or greater."/>
+	  
+	  <Feature Id="Broker">
+      <ComponentGroupRef Id="BrokerComponents" />
+	
+    </Feature>
+	<Feature Id="Client">
+		<ComponentGroupRef Id="ClientComponents" />
+	</Feature>
+	<Feature Id="Shared" AllowAbsent="false">
+		<ComponentGroupRef Id="SharedComponents" />
+	</Feature>
+	  <Media Id="1" Cabinet="sudoforwindows.cab" EmbedCab="yes" />
+  </Package>
+</Wix>

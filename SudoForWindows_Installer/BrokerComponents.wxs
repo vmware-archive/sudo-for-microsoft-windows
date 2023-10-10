@@ -1,0 +1,27 @@
+<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Fragment>
+    <ComponentGroup Id="BrokerComponents" Directory="INSTALLFOLDER">
+		<Component Id="BrokerServiceComponent">
+			<File Source="SudoBroker.exe" Id="SudoBrokerBinary">
+				<util:PermissionEx User="Users" GenericAll="no" />
+				<util:PermissionEx ChangePermission="yes" User="Administrators" GenericAll="yes"/>
+				<util:PermissionEx ChangePermission="yes" User="SYSTEM" GenericAll="yes"/>
+			</File>
+			<File Source="SudoBroker.exe.config">
+				<util:PermissionEx User="Users" GenericAll="no" />
+				<util:PermissionEx ChangePermission="yes" User="Administrators" GenericAll="yes"/>
+				<util:PermissionEx ChangePermission="yes" User="SYSTEM" GenericRead="yes" GenericWrite="no" GenericExecute="yes"/>
+			</File>
+			<File Source="sudoers.conf">
+				<util:PermissionEx User="Users" GenericAll="no" />
+				<util:PermissionEx ChangePermission="yes" User="Administrators" GenericAll="yes"/>
+				<util:PermissionEx ChangePermission="yes" User="SYSTEM" GenericRead="yes" GenericWrite="no" GenericExecute="yes"/>
+			</File>
+			<ServiceInstall Id="SudoBrokerService" Name="SudoBroker" Description="!(loc.ServiceDescription)" Start="auto" Account="LocalSystem" Type="ownProcess" ErrorControl="normal" Vital="yes" Interactive="no" Arguments="&quot;[INSTALLFOLDER]sudoers.conf&quot;"/>
+			<ServiceControl Id="SudoBrokerService" Name="SudoBroker" Remove="uninstall" Stop="uninstall"/>
+		</Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
