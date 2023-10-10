@@ -1,0 +1,17 @@
+<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="ClientComponents" Directory="INSTALLFOLDER">
+		<Component Id="ClientBinary">
+			<File Source="Sudo.exe"/>
+			<File Source="Sudo.exe.config"/>
+			<Environment Id="SetPath" Action="set" Name="PATH" Part="last" Permanent="no" System="yes" Value="[INSTALLFOLDER]" />
+		</Component>
+		<Component Id="SupportingDLLs" Guid="{EDEE7FDC-5B58-486C-9F9A-631EEF7AB764}">
+			<File Source="System.CommandLine.dll"/>
+			<File Source="System.Memory.dll"/>
+		</Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

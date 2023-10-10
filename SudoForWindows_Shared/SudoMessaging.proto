@@ -1,0 +1,22 @@
+//Copyright 2023 VMware, Inc.
+//SPDX-License-Identifier: BSD-2-Clause
+syntax = "proto3";
+package SudoForWindows_MessageTypes;
+option csharp_namespace = "SudoForWindows_Shared";
+
+message SudoCommandRequest_pb3 {
+	string CommandString = 1;
+	string RunAsUser = 2;
+}
+
+enum OutputType_pb3 {
+	STDOUT = 0;
+	STDERR = 1;
+	SYSTEM = 2;
+	EOF = 4;
+}
+
+message SudoCommandOutput_pb3 {
+	string OutputLine = 1;
+	OutputType_pb3 OutputType = 2;
+}

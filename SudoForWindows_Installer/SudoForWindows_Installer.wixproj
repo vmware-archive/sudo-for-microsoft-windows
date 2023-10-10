@@ -1,0 +1,13 @@
+﻿<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Project Sdk="WixToolset.Sdk/4.0.0">
+  <ItemGroup>
+    <PackageReference Include="WixToolset.Netfx.wixext" Version="4.0.1" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="4.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SudoForWindows_Broker\SudoForWindows_Broker.csproj" />
+    <ProjectReference Include="..\SudoForWindows_Client\SudoForWindows_Client.csproj" />
+    <ProjectReference Include="..\SudoForWindows_Shared\SudoForWindows_Shared.csproj" />
+  </ItemGroup>
+</Project>
