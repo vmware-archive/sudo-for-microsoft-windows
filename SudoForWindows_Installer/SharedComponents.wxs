@@ -1,0 +1,17 @@
+<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Fragment>
+    <ComponentGroup Id="SharedComponents" Directory="INSTALLFOLDER">
+		<Component Id="SharedDLL">
+			<File Source="SudoForWindows_Shared.dll"/>
+			<File Source="SudoForWindows_Shared.dll.config"/>
+		</Component>
+		<Component Id="SharedSupportingDLLs" Guid="{81020F25-E0EB-406D-B9D0-0FF7968456DC}">
+			<File Source="System.Runtime.CompilerServices.Unsafe.dll"/>
+			<File Source="Google.Protobuf.dll" />
+			<File Source="System.Buffers.dll" />
+		</Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

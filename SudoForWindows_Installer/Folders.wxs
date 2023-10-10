@@ -1,0 +1,13 @@
+<!--Copyright 2023 VMware, Inc.-->
+<!--SPDX-License-Identifier: BSD-2-Clause-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:util="http://wixtoolset.org/schemas/v4/wxs/util">
+  <Fragment>
+    <StandardDirectory Id="ProgramFiles6432Folder">
+		<Directory Id="PRODUCTFOLDER" Name="!(bind.Property.Manufacturer)">
+			<Directory Id ="INSTALLFOLDER" Name="!(bind.Property.ProductName)">
+
+			</Directory>
+		</Directory>
+    </StandardDirectory>
+  </Fragment>
+</Wix>
