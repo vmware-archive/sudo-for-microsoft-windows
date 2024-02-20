@@ -1,6 +1,8 @@
 # Sudo For Microsoft Windows
 
-## Current Project status - Beta Release
+## Note: Active development on this project has ceased as of Feb 2024, and the project will no longer be maintained.
+
+## Current Project status - Archived
 
 ## Description
 Sudo for Microsoft Windows aims to provide a familiar interface for allowing escalation of specific commands from within a Windows automation workflow. 
